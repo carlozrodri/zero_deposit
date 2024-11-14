@@ -27,8 +27,11 @@ To install the project and set up your environment, follow these steps:
     python3 -m venv env
 
 4. Activate the virtual enviroment
-Mac/Linux
+    Mac/Linux
     source env/bin/activate
+
+    Windows
+    venv\Scripts\activate
 
 5. Install the project dependencies
     
