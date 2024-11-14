@@ -1,0 +1,8 @@
+/env
+/crm_api/__pycache__
+/properties/__pycache__
+/properties/migrations/*
+/users/__pycache__
+/users/migrations/*
+/db.sqlite3
+.env
