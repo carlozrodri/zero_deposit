@@ -51,9 +51,67 @@ Create a .env file and add the necessary environment variables:
 
 ## Usage
 
+
+    
+Create a superuser for testing the api:
+
+    python manage.py createsuperuser
+
 To run the development server
     
     python manage.py runserver
+    
+To create regular users for testing:
+
+    python manage.py shell
+    
+```
+from users.models import User
+    
+user = User.objects.create_user(
+    username='test',
+    password='test12345'
+)
+```
+To Retrieve a Valid Token:
+```
+curl -L 'http://127.0.0.1:8000/auth/login/' \
+-H 'Content-Type: application/json' \
+-d '{
+    "username": "test",
+    "password": "test12345"
+}'
+
+```
+To Create a Property
+```
+curl -L 'http://127.0.0.1:8000/api/properties/' \
+-H 'Content-Type: application/json' \
+-H 'Authorization: Bearer TOKEN' \
+-d '{
+    "address": "Av. Romulo Gallegos",
+    "postcode": "8871",
+    "city": "Caracas",
+    "rooms": 23
+}'
+```
+To Retrieve Properties
+```
+curl -L 'http://127.0.0.1:8000/api/properties/' \
+-H 'Authorization: Bearer TOKEN' \
+-d ''
+```
+To Update a Property
+```
+curl -L -X PATCH 'http://127.0.0.1:8000/api/properties/7/' \
+-H 'Content-Type: application/json' \
+-H 'Authorization: Bearer TOKEN' \
+-d '{
+
+    "rooms": 10
+}'
+```
+
 
 ## Testing
 
